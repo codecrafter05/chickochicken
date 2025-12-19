@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <x-menu-header logo-link="/menu" />
+  <x-menu-header logo-link="/menu" show-back-button="true" />
 
   <!-- Page Layout -->
   <div class="menu-page">
