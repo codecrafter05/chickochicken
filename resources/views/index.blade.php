@@ -15,38 +15,14 @@
   <div class="menu-page">
     <!-- Sidebar Navigation - Desktop Only -->
     <aside class="menu-sidebar">
-      <div class="menu-sidebar-item active" data-category="sandwiches">
-        <img src="{{ asset('assets/images/sandwich.png') }}" alt="Sandwiches">
-        <span class="menu-sidebar-item-text">Sandwiches</span>
-      </div>
-      <div class="menu-sidebar-item" data-category="appetizers">
-        <img src="{{ asset('assets/images/sandwich.png') }}" alt="Meal">
-        <span class="menu-sidebar-item-text">Appetizers</span>
-      </div>
-      <div class="menu-sidebar-item" data-category="broasted">
-        <img src="{{ asset('assets/images/sandwich.png') }}" alt="Broasted Meals">
-        <span class="menu-sidebar-item-text">Broasted Meals</span>
-      </div>
-      <div class="menu-sidebar-item" data-category="strips">
-        <img src="{{ asset('assets/images/sandwich.png') }}" alt="Chicken Strips">
-        <span class="menu-sidebar-item-text">Chicken Strips</span>
-      </div>
-      <div class="menu-sidebar-item" data-category="fries">
-        <img src="{{ asset('assets/images/sandwich.png') }}" alt="Fries">
-        <span class="menu-sidebar-item-text">Fries</span>
-      </div>
-      <div class="menu-sidebar-item" data-category="drinks">
-        <img src="{{ asset('assets/images/sandwich.png') }}" alt="Drinks">
-        <span class="menu-sidebar-item-text">Drinks</span>
-      </div>
-      <div class="menu-sidebar-item" data-category="sauces">
-        <img src="{{ asset('assets/images/sandwich.png') }}" alt="Sauces">
-        <span class="menu-sidebar-item-text">Sauces</span>
-      </div>
-      <div class="menu-sidebar-item" data-category="special">
-        <img src="{{ asset('assets/images/sandwich.png') }}" alt="Special">
-        <span class="menu-sidebar-item-text">Special</span>
-      </div>
+      @forelse($categories as $cat)
+        <div class="menu-sidebar-item" data-category="{{ $cat->slug }}">
+          <img src="{{ $cat->image ? asset('storage/' . $cat->image) : asset('assets/images/sandwich.png') }}" alt="{{ $cat->name }}" loading="lazy">
+          <span class="menu-sidebar-item-text">{{ $cat->name }}</span>
+        </div>
+      @empty
+        <!-- No categories -->
+      @endforelse
     </aside>
 
     <!-- Main Content -->
@@ -55,53 +31,16 @@
         <h1 class="menu-main-title">Chicko Chicken Menu</h1>
 
         <div class="categories-grid">
-          <!-- Category 1: Sandwiches -->
-          <div class="category-item" data-category="sandwiches">
-            <img src="{{ asset('assets/images/sandwich.png') }}" alt="Sandwiches" class="category-image">
-            <div class="category-label">Sandwiches</div>
-          </div>
-
-          <!-- Category 2: Appetizers -->
-          <div class="category-item" data-category="appetizers">
-            <img src="{{ asset('assets/images/sandwich.png') }}" alt="Appetizers" class="category-image">
-            <div class="category-label">Appetizers</div>
-          </div>
-
-          <!-- Category 3: Broasted Meals -->
-          <div class="category-item" data-category="broasted">
-            <img src="{{ asset('assets/images/sandwich.png') }}" alt="Broasted Meals" class="category-image">
-            <div class="category-label">Broasted Meals</div>
-          </div>
-
-          <!-- Category 4: Chicken Strips -->
-          <div class="category-item" data-category="strips">
-            <img src="{{ asset('assets/images/sandwich.png') }}" alt="Chicken Strips" class="category-image">
-            <div class="category-label">Chicken Strips</div>
-          </div>
-
-          <!-- Category 5: Fries -->
-          <div class="category-item" data-category="fries">
-            <img src="{{ asset('assets/images/sandwich.png') }}" alt="Fries" class="category-image">
-            <div class="category-label">Fries</div>
-          </div>
-
-          <!-- Category 6: Drinks -->
-          <div class="category-item" data-category="drinks">
-            <img src="{{ asset('assets/images/sandwich.png') }}" alt="Drinks" class="category-image">
-            <div class="category-label">Drinks</div>
-          </div>
-
-          <!-- Category 7: Sauces -->
-          <div class="category-item" data-category="sauces">
-            <img src="{{ asset('assets/images/sandwich.png') }}" alt="Sauces" class="category-image">
-            <div class="category-label">Sauces</div>
-          </div>
-
-          <!-- Category 8: Special -->
-          <div class="category-item" data-category="special">
-            <img src="{{ asset('assets/images/sandwich.png') }}" alt="Special" class="category-image">
-            <div class="category-label">Special</div>
-          </div>
+          @forelse($categories as $cat)
+            <div class="category-item" data-category="{{ $cat->slug }}">
+              <img src="{{ $cat->image ? asset('storage/' . $cat->image) : asset('assets/images/sandwich.png') }}" alt="{{ $cat->name }}" class="category-image" loading="lazy">
+              <div class="category-label">{{ $cat->name }}</div>
+            </div>
+          @empty
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+              <p>No categories available. Please add categories from the admin panel.</p>
+            </div>
+          @endforelse
         </div>
       </div>
     </div>
