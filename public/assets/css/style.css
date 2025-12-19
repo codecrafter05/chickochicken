@@ -266,11 +266,32 @@ body {
   margin-bottom: 8px;
 }
 
-.product-price {
+.product-prices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.price-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+}
+
+.price-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+.price-value {
   font-size: 16px;
   font-weight: 700;
   color: #FFD401;
-  text-align: center;
 }
 
 /* ============================================
@@ -325,7 +346,11 @@ body {
     font-size: 20px;
   }
 
-  .product-price {
+  .price-label {
+    font-size: 15px;
+  }
+
+  .price-value {
     font-size: 18px;
   }
 }
