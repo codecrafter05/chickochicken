@@ -234,6 +234,14 @@ body {
   font-weight: 500;
   color: #1a1a1a;
   text-align: center;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFD401;
+  text-align: center;
 }
 
 /* ============================================
@@ -286,6 +294,10 @@ body {
 
   .product-name {
     font-size: 20px;
+  }
+
+  .product-price {
+    font-size: 18px;
   }
 }
 

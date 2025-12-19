@@ -59,35 +59,42 @@
           <div class="product-item">
             <img src="{{ asset('assets/images/sandwich.png') }}" alt="Product 1" class="product-image">
             <div class="product-name">Product 1</div>
+            <div class="product-price">2.50 BHD</div>
           </div>
 
           <div class="product-item">
             <img src="{{ asset('assets/images/sandwich.png') }}" alt="Product 2" class="product-image">
             <div class="product-name">Product 2</div>
+            <div class="product-price">3.00 BHD</div>
           </div>
 
           <div class="product-item">
             <img src="{{ asset('assets/images/sandwich.png') }}" alt="Product 3" class="product-image">
             <div class="product-name">Product 3</div>
+            <div class="product-price">2.00 BHD</div>
           </div>
 
           <div class="product-item">
             <img src="{{ asset('assets/images/sandwich.png') }}" alt="Product 4" class="product-image">
             <div class="product-name">Product 4</div>
+            <div class="product-price">4.50 BHD</div>
           </div>
 
           <div class="product-item">
             <img src="{{ asset('assets/images/sandwich.png') }}" alt="Product 5" class="product-image">
             <div class="product-name">Product 5</div>
+            <div class="product-price">3.50 BHD</div>
           </div>
 
           <div class="product-item">
             <img src="{{ asset('assets/images/sandwich.png') }}" alt="Product 6" class="product-image">
             <div class="product-name">Product 6</div>
+            <div class="product-price">2.00 BHD</div>
           </div>
         </div>
       </div>
     </div>
+    
   </div>
   
 </body>
