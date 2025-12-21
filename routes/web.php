@@ -7,3 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MenuController::class, 'index'])->name('menu.index');
 
 Route::get('/menu/{category}', [CategoryController::class, 'show'])->name('category.show');
+
+Route::get('/links', function () {
+    return view('links');
+})->name('links');
