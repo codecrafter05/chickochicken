@@ -16,6 +16,7 @@ class Product extends Model
         'price', // Single price for products like sauces, drinks, salads
         'sandwich_price', // Price for sandwich option
         'meal_price', // Price for meal option
+        'custom_options', // JSON array for custom options with name and price (e.g., [{"name": "سوس أحمر", "price": "1.000"}])
         'order',
         'is_active',
     ];
@@ -24,6 +25,7 @@ class Product extends Model
         'price' => 'decimal:3',
         'sandwich_price' => 'decimal:3',
         'meal_price' => 'decimal:3',
+        'custom_options' => 'array', // Cast JSON to array
         'is_active' => 'boolean',
         'order' => 'integer',
     ];

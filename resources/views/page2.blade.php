@@ -35,11 +35,32 @@
               <div class="product-name">{{ $product->name }}</div>
               <div class="product-prices">
                 {{-- 
-                  Price Display Logic:
-                  - If 'price' is set: display only this price (no labels) - for products like sauces, drinks, salads
-                  - If 'sandwich_price' and/or 'meal_price' are set: display them with labels - for products with sandwich/meal options
+                  Price Display Logic (Priority Order):
+                  1. If 'custom_options' is set: display custom options (name + price for each) - for products with multiple named options
+                  2. If 'price' is set: display only this price (no labels) - for products like sauces, drinks, salads
+                  3. If 'sandwich_price' and/or 'meal_price' are set: display them with labels - for products with sandwich/meal options
                 --}}
-                @if($product->price)
+                @if(!empty($product->custom_options) && is_array($product->custom_options))
+                  {{-- Custom options display (name + price for each option) --}}
+                  @foreach($product->custom_options as $option)
+                    <div class="price-item">
+                      <span class="price-label">{{ $option['name'] ?? '' }}</span>
+                      <span class="price-value">
+                        @php
+                          $price = (float)($option['price'] ?? 0);
+                          $formatted = number_format($price, 3, '.', '');
+                          // If it's a whole number, remove decimal part
+                          if ($price == floor($price)) {
+                            echo number_format($price, 0, '.', '');
+                          } else {
+                            echo $formatted;
+                          }
+                        @endphp
+                         BHD
+                      </span>
+                    </div>
+                  @endforeach
+                @elseif($product->price)
                   {{-- Single price display (no labels) --}}
                   <div class="price-item">
                     <span class="price-value">

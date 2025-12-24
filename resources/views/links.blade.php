@@ -113,6 +113,24 @@
       text-align: center;
     }
 
+    .contact-item.menu-button {
+      border: 2px solid #1b77bb;
+    }
+
+    .contact-item.menu-button:hover {
+      border-color: #357ae8;
+      box-shadow: 0 2px 8px rgba(27, 119, 187, 0.2);
+      background: #f0f8ff;
+    }
+
+    .contact-item .menu-icon-svg {
+      width: 20px;
+      height: 20px;
+      fill: #1a1a1a;
+      position: absolute;
+      left: 20px;
+    }
+
     .links-section {
       width: 100%;
       display: flex;
@@ -176,10 +194,62 @@
         font-size: 15px;
       }
     }
+
+    /* Loader Styles */
+    .links-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .links-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .links-loader-logo {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    .links-page {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .links-page.loaded {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
-  <div class="links-page">
+  <!-- Loader -->
+  <div class="links-loader" id="linksLoader">
+    <img src="{{ asset('assets/images/icon2.png') }}" alt="Chicko Chicken" class="links-loader-logo">
+  </div>
+
+  <div class="links-page" id="linksPage">
     <div class="links-container">
       <!-- Logo -->
       <img src="{{ asset('assets/images/icon2.png') }}" alt="Chicko Chicken" class="links-logo">
@@ -198,6 +268,15 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
           </svg>
+        </a>
+      </div>
+
+      <div class="contact-section">
+        <a href="/" class="contact-item menu-button" aria-label="View Menu">
+          <svg class="menu-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+          <span class="branch-name">Menu</span>
         </a>
       </div>
 
@@ -244,8 +323,25 @@
           Al Sayah
         </a>
       </div>
+      
     </div>
   </div>
+
+  <script>
+    // Loader hide after 3 seconds
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('linksLoader');
+      const page = document.getElementById('linksPage');
+      
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        page.classList.add('loaded');
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
 

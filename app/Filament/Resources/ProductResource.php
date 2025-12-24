@@ -86,6 +86,35 @@ class ProductResource extends Resource
                             ->nullable(),
                     ])
                     ->collapsible(),
+                
+                // Custom Options (for products with multiple named options like sauces)
+                // NOTE: Use this for products that have multiple options with different names and prices
+                // Example: بطاطس with options: سوس أحمر (1.000 BHD), سوس أزرق (3.000 BHD)
+                Forms\Components\Section::make('Custom Options')
+                    ->schema([
+                        Forms\Components\Repeater::make('custom_options')
+                            ->schema([
+                                Forms\Components\TextInput::make('name')
+                                    ->label('Option Name')
+                                    ->required()
+                                    ->maxLength(255)
+                                    ->placeholder('6 Pcs'),
+                                Forms\Components\TextInput::make('price')
+                                    ->label('Option Price')
+                                    ->numeric()
+                                    ->step(0.001)
+                                    ->prefix('BHD')
+                                    ->required()
+                                    ->placeholder('1.000'),
+                            ])
+                            ->columns(2)
+                            ->itemLabel(fn (array $state): ?string => $state['name'] ?? null)
+                            ->addActionLabel('Add Custom Option')
+                            ->collapsible()
+                            ->defaultItems(0),
+                    ])
+                    ->collapsible(),
+                
                 Forms\Components\Toggle::make('is_active')
                     ->default(true)
                     ->label('Active'),
@@ -120,6 +149,22 @@ class ProductResource extends Resource
                     ->money('BHD')
                     ->sortable()
                     ->label('Meal Price')
+                    ->default('—'),
+                Tables\Columns\TextColumn::make('custom_options')
+                    ->label('Custom Options')
+                    ->formatStateUsing(function ($state) {
+                        if (empty($state) || !is_array($state)) {
+                            return '—';
+                        }
+                        return collect($state)->map(function ($option) {
+                            $price = number_format((float)$option['price'], 3, '.', '');
+                            if ((float)$option['price'] == floor((float)$option['price'])) {
+                                $price = number_format((float)$option['price'], 0, '.', '');
+                            }
+                            return ($option['name'] ?? '') . ' (' . $price . ' BHD)';
+                        })->join(', ');
+                    })
+                    ->wrap()
                     ->default('—'),
                 Tables\Columns\TextColumn::make('order')
                     ->sortable()
