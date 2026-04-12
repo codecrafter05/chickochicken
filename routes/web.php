@@ -11,3 +11,7 @@ Route::get('/menu/{category}', [CategoryController::class, 'show'])->name('categ
 Route::get('/links', function () {
     return view('links');
 })->name('links');
+
+Route::get('/saudi', function () {
+    return view('saudi');
+})->name('saudi');
