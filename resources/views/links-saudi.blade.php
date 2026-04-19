@@ -255,7 +255,7 @@
       <img src="{{ asset('assets/images/icon2.png') }}" alt="Chicko Chicken" class="links-logo">
 
       <!-- Tagline -->
-      <div class="links-tagline">FRESH•TASTY•CRISPY</div>
+      <div class="links-tagline">طازج•مذاق•مقرمش</div>
 
       <!-- Social Icons -->
       <div class="social-icons">
@@ -276,27 +276,27 @@
           <svg class="menu-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
           </svg>
-          <span class="branch-name">Menu</span>
+          <span class="branch-name">قائمة طعام</span>
         </a>
       </div>
 
       <!-- Contact Number -->
       <div class="contact-section">
-        <a href="tel:+966544736355" class="contact-item" aria-label="Call Saudi branch">
+        <a href="tel:544736355" class="contact-item" aria-label="Call Saudi branch">
           <svg class="phone-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
           </svg>
-          <span class="branch-name">Saudi · السعودية</span>
+          <span class="branch-name">فرع الهفوف</span>
         </a>
       </div>
 
       <!-- Google Maps -->
       <div class="links-section">
-        <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" class="link-button" aria-label="Open location in Google Maps">
+        <a href=" https://maps.app.goo.gl/Z2KAb236ADo3ccFE6?g_st=iw" target="_blank" rel="noopener noreferrer" class="link-button" aria-label="Open location in Google Maps">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
           </svg>
-          Saudi Branch
+         الموقع
         </a>
       </div>
 
