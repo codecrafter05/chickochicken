@@ -33,10 +33,10 @@
   <div class="sa-menu" role="main">
     <img src="{{ asset('assets/images/sa/Sandwiches.jpg') }}" alt="" loading="lazy" decoding="async" />
     <img src="{{ asset('assets/images/sa/Sandwiches2.jpg') }}" alt="" loading="lazy" decoding="async" />
-    <img src="{{ asset('assets/images/sa/Fried Chicken.jpg') }}" alt="" loading="lazy" decoding="async" />
-    <img src="{{ asset('assets/images/sa/Strips.jpg') }}" alt="" loading="lazy" decoding="async" />
+    <img src="{{ asset('assets/images/sa/11.jpg') }}" alt="" loading="lazy" decoding="async" />
+    <img src="{{ asset('assets/images/sa/10.jpg') }}" alt="" loading="lazy" decoding="async" />
     <img src="{{ asset('assets/images/sa/Rice.jpg') }}" alt="" loading="lazy" decoding="async" />
-    <img src="{{ asset('assets/images/sa/Sides item.jpg') }}" alt="" loading="lazy" decoding="async" />
+    <img src="{{ asset('assets/images/sa/02.jpg') }}" alt="" loading="lazy" decoding="async" />
     <img src="{{ asset('assets/images/sa/Sides item-2.jpg') }}" alt="" loading="lazy" decoding="async" />
     <img src="{{ asset('assets/images/sa/kids Menu.jpg') }}" alt="" loading="lazy" decoding="async" />
     <img src="{{ asset('assets/images/sa/My pocket.jpg') }}" alt="" loading="lazy" decoding="async" />
